@@ -1,0 +1,11 @@
+---
+:development: &defaults
+  :adapter: sqlite
+  :database: ":memory:"
+  :timeout: 5000
+
+:test:
+  <<: *defaults
+
+:production:
+  <<: *defaults

@@ -1,0 +1,34 @@
+---
+:development: &defaults
+  :service_pools: 
+  - :service_ami: "cartoon_fox"
+    :key_pair_name: "foo-key-pair"
+    :queue_prefix: "chunky-"
+    :service_work_queue: "unpackaged"
+    :pool_status_queue: "unpackaged-status"
+    :minimum_number_of_instances: 0
+    :maximum_number_of_instances: 6
+    :minimum_lifetime_in_minutes: 0.75
+    :find_existing_instances?: true
+    :ramp_up_interval: 1
+    :ramp_up_delay: 10
+    :ramp_down_interval: 1
+    :ramp_down_delay: 10
+    :idle_bump_interval: 4
+    :queue_size_factor: 100
+  :aws: 
+    :access_id: "foo"
+    :access_key: "bar"
+    :ec2:
+      :server: "localhost"
+      :port: 4001
+      :protocol: "http"
+    :sqs:
+      :server: "localhost"
+      :port: 4002
+      :protocol: "http"
+:test:
+  <<: *defaults
+
+:production:
+  <<: *defaults

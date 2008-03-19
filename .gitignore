@@ -1,0 +1,9 @@
+*.log
+log/*
+*/log/*
+framework
+.DS_Store
+tmp/*
+*/tmp/*
+coverage
+*/coverage

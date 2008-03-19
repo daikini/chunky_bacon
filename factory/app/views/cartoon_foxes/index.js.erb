@@ -1,0 +1,9 @@
+fox_count = 1;
+$$('ul.foxes li').each(function(fox) {
+  if (fox_count > <%= @cartoon_foxes.size %>) {
+    Effect.Shrink(fox);
+  } else {
+    if (!fox.visible()) Effect.Grow(fox);
+  }
+  fox_count++;
+});

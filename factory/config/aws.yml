@@ -1,0 +1,22 @@
+---
+:development: &defaults
+  :access_id: "foo"
+  :access_key: "bar"
+  :sqs:
+    :host: "localhost"
+    :port: 11300
+    :protocol: "http"
+  :s3:
+    :host: "localhost"
+    :port: 4002
+    :protocol: "http"
+  :ec2:
+    :host: "localhost"
+    :port: 4001
+    :protocol: "http"
+    
+:test:
+  <<: *defaults
+
+:production:
+  <<: *defaults
