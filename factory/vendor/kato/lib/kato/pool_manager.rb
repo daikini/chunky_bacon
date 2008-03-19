@@ -188,7 +188,7 @@ module Kato
       launched_instances = ec2.run_instances(config[:service_ami], 1, number_of_instances_to_launch, nil, config[:key_pair_name], config[:user_data])
 
 			if launched_instances.size < number_of_instances_to_launch
-			  STDERR.puts "Failed to lanuch desired number of instances. (#{launched_instances.size} instead of #{number_of_instances_to_launch})"
+			  STDERR.puts "Failed to launch desired number of instances. (#{launched_instances.size} instead of #{number_of_instances_to_launch})"
 			end
 			
 			launched_instances.each do |launched_instance|
