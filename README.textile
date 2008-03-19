@@ -1,0 +1,46 @@
+h1. Chunky Bacon - Using Amazon's Webservices From Ruby
+
+h2. Description:
+
+ChunkyBacon is a suite of applications that use Amazon's Webservice APIs to produce bacon. Chunky bacon
+to be exact. Cartoon foxes then package up this chunky bacon.
+
+h2. Requirements:
+
+* Merb 0.9+
+* merb_sequel
+* right_aws
+* god
+
+h2. Installation:
+
+<pre><code>
+  git clone http://github.com/daikini/chunky_bacon.git
+</code></pre>
+
+h2. Getting Started:
+
+h3. Configure Database
+
+  # Edit the chunky_bacon/factory/config/database.yml file
+  # Edit the chunky_bacon/ec2/config/database.yml file (need not be the same as the factory config)
+
+h3. Start Up the Processes
+  
+  # <pre><code>$ cd chunky_bacon/factory && merb</code></pre>
+  # <pre><code>$ cd chunky_bacon/ec2 && merb -p 4001</code></pre>
+  # <pre><code>$ cd chunky_bacon/factory && merb -r 'CartoonFox.get_packaged_bacon!'</code></pre>
+  # <pre><code>$ cd chunky_bacon/factory && merb -r 'CartoonFox.supervise!'</code></pre>
+  
+h2. Producing Chunky Bacon:
+  
+  * Open browser to "http://localhost:4000/":http://localhost:4000/
+  * Startup an interactive merb session
+    <pre><code>$ cd chunky_bacon/factory && merb -i</code></pre>
+    <pre><code>>> Slice.package!</code></pre>
+
+Have fun creating as much bacon as you want!
+
+h3. License:
+
+  chunky_bacon is licensed under the MIT License. Copyright (c) 2008 Jonathan Younger
