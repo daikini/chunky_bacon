@@ -9,7 +9,8 @@
     <li class="fox3" style="top: 55px;">&nbsp;</li>
     <li class="fox4" style="top: 50px;">&nbsp;</li>
     <li class="fox5" style="top: 75px;">&nbsp;</li>
-    <li class="kb" style="top: 85px;">&nbsp;</li>
+    <li class="fox6" style="top: 100px;">&nbsp;</li>
+    <!-- <li class="kb" style="top: 85px;">&nbsp;</li> -->
   </ul>
   
   <div id="conveyor">
@@ -23,7 +24,7 @@
   
   document.observe('dom:loaded', function() {
     $$('ul.foxes li').invoke('hide');
-    conveyor = new Conveyor('conveyor');
-    statsUpdater = new Ajax.PeriodicalUpdater('', 'http://localhost:4000/cartoon_foxes', {method: 'get'});
+    conveyor = new Conveyor('conveyor', '<%= request.protocol + request.host %>');
+    statsUpdater = new Ajax.PeriodicalUpdater('', '<%= absolute_url(:cartoon_foxes) %>', {method: 'get'});
   });
 </script>

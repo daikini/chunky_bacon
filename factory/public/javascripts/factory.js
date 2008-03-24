@@ -1,7 +1,7 @@
 var Slice = Class.create({
-  initialize: function(options) {
+  initialize: function(options, baseUrl) {
     this.id = options.id;
-    this.url = 'http://localhost:4000/slices/' + this.id;
+    this.url = baseUrl + '/slices/' + this.id;
     this.image = new Element('img', { src: options.image_url, style: 'position: fixed' });
     this.updater = new PeriodicalExecuter(this.update.bind(this), 1.25);
   },
@@ -25,19 +25,20 @@ var Slice = Class.create({
 });
 
 var Conveyor = Class.create({
-  initialize: function(element) {
+  initialize: function(element, baseUrl) {
     this.element = $(element);
+    this.baseUrl = baseUrl;
     this.updater = new PeriodicalExecuter(this.update.bind(this), 0.5);
   },
   update: function() {
-    new Ajax.Request('http://localhost:4000/slices.json', {
+    new Ajax.Request(this.baseUrl + '/slices.json', {
       method: 'get',
       asynchronous: false,
       parameters: { limit: 1 },
       onSuccess: function(response) {
         var slices = response.responseJSON;
         slices.each(function(sliceAttributes) {
-          var slice = new Slice(sliceAttributes);
+          var slice = new Slice(sliceAttributes, this.baseUrl);
           slice.image.setStyle({top: (this.top() + 10) + 'px', left: (this.left() + this.width() + 100) + 'px'});
           this.element.insert({before:slice.image});
           new Effect.Move(slice.image, { x: this.left() - 50, y: this.top() + 110, duration: 4, mode: 'absolute', transition: Effect.Transitions.linear, afterFinish: function() { slice.finish(); } });
