@@ -1,9 +1,8 @@
-*.log
-log/*
-*/log/*
+log/*.log
+log/*.god
+log/*.sock
 framework
 .DS_Store
-tmp/*
-*/tmp/*
+tmp/**/*
 coverage
 */coverage
