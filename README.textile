@@ -38,6 +38,7 @@ h2. Producing Chunky Bacon:
   * Startup an interactive merb session
     <pre><code>$ cd chunky_bacon/factory && merb -i</code></pre>
     <pre><code>>> Slice.package!</code></pre>
+    <pre><code>>> loop { Slice.package!; sleep 1.5 }</code></pre>
 
 Have fun creating as much bacon as you want!
 
