@@ -6,7 +6,7 @@
     :queue_prefix: "chunky-"
     :service_work_queue: "unpackaged"
     :pool_status_queue: "unpackaged-status"
-    :minimum_number_of_instances: 0
+    :minimum_number_of_instances: 2
     :maximum_number_of_instances: 6
     :minimum_lifetime_in_minutes: 0.75
     :find_existing_instances?: true
