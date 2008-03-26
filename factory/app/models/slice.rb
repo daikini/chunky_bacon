@@ -31,9 +31,9 @@ class Slice < Sequel::Model
   
   def self.unconveyed(number_of_slices = 1)
     conveyed_at = Time.now
-    unconvyed_slices = filter(:conveyed_at => nil, :packaged_at => nil).order(:id).limit(number_of_slices).all
-    unconvyed_slices.each { |slice| slice.set(:conveyed_at => conveyed_at) }
-    unconvyed_slices
+    unconveyed_slices = filter(:conveyed_at => nil, :packaged_at => nil).order(:id).limit(number_of_slices).all
+    unconveyed_slices.each { |slice| slice.set(:conveyed_at => conveyed_at) }
+    unconveyed_slices
   end
 end
 Slice.create_table unless Slice.table_exists?
