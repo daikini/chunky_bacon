@@ -10,6 +10,7 @@ h2. Requirements:
 * Merb 0.9+
 * merb_sequel
 * right_aws
+* kato
 * god
 
 h2. Installation:
