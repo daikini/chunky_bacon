@@ -1,3 +1,5 @@
+require 'kato'
+
 class CartoonFox
   def self.get_packaged_bacon!
     packaged = SQS.queue("chunky-packaged")
@@ -13,7 +15,6 @@ class CartoonFox
   end
   
   def self.supervise!
-    require Merb.root/"vendor"/"kato"/"lib"/"kato"
     pool_supervisor = Kato::PoolSupervisor.new(KATO_CONFIG)
     pool_supervisor.run
   end
