@@ -69,7 +69,13 @@ height: 160px;
 z-index: 1;
 padding-left: 10px;
 }
-
+  ul.foxes .dv {
+background: url("/images/dv.png") no-repeat;
+width: 120px;
+height: 120px;
+z-index: 1;
+padding-left: 10px;
+}
 #conveyor {
 width: 700px;
 height: 150px;
